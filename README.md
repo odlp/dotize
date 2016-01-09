@@ -5,7 +5,6 @@ Access values from a deeply-nested Hash using a simple string:
 ```ruby
 my_hash = {'a' => {'b' => {'c' => 123}}}
 my_hash.extend(Dotize)
-
 my_hash.dot('a.b.c') # => 123
 ```
 
