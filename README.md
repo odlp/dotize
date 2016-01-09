@@ -1,36 +1,30 @@
 # Dotize
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/dotize`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
-## Installation
-
-Add this line to your application's Gemfile:
+Access values from a deeply-nested Hash using a simple string:
 
 ```ruby
-gem 'dotize'
+my_hash = {'a' => {'b' => {'c' => 123}}}
+my_hash.extend(Dotize)
+
+my_hash.dot('a.b.c') # => 123
 ```
 
-And then execute:
+If a value isn't found, nil is returned by default:
 
-    $ bundle
+```ruby
+my_hash.dot('a.b.z.z.z') # => nil
+```
 
-Or install it yourself as:
+You can provide a block to override the default, like Ruby's [Hash#fetch](http://ruby-doc.org/core-2.3.0/Hash.html#method-i-fetch):
 
-    $ gem install dotize
-
-## Usage
-
-TODO: Write usage instructions here
+```ruby
+my_hash.dot('a.b.z.z.z') { |el| 2 + 2 } # => 4
+```
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+- Run specs via `rake` or `bundle exec rspec`
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+## Credits
 
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/dotize.
-
+The name of this is ~~inspired-by~~ copied from [github.com/vardars/dotize](https://github.com/vardars/dotize), a Javascript equivalent.
