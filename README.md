@@ -1,5 +1,7 @@
 # Dotize
 
+[![Build Status](https://travis-ci.org/odlp/dotize.svg?branch=master)](https://travis-ci.org/odlp/dotize)
+
 Access values from a deeply-nested Hash using a simple string:
 
 ```ruby
