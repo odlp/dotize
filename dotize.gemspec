@@ -7,7 +7,6 @@ Gem::Specification.new do |spec|
   spec.name          = "dotize"
   spec.version       = Dotize::VERSION
   spec.authors       = ["odlp"]
-  spec.email         = ["oliverp@gmail.com"]
 
   spec.summary       = "Dig into a deeply-nested Hash with a dot-delimited string"
   spec.homepage      = "https://github.com/odlp/dotize"
